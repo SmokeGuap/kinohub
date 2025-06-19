@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 
-import { Header } from '@/shared/ui';
+import { Footer, Header } from '@/shared/ui';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -26,6 +26,7 @@ export default function RootLayout({
       >
         <Header />
         <div className='flex-1'>{children}</div>
+        <Footer />
       </body>
     </html>
   );
