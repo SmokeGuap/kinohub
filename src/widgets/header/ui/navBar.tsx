@@ -7,7 +7,7 @@ export const NavBar = () => {
 
   const navItems = [
     { href: '/', label: 'Главная' },
-    { href: '/media', label: 'Фильмы' },
+    { href: '/films', label: 'Фильмы' },
     { href: '/series', label: 'Сериалы' },
     { href: '/cartoons', label: 'Мультфильмы' },
   ];
