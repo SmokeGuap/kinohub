@@ -30,8 +30,12 @@ class ApiInstance {
       return response.data;
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
+      console.error(err?.response?.data?.message || err.message);
 
-      toast(err?.response?.data?.message || err.message || 'Ошибка');
+      if (typeof window !== 'undefined') {
+        toast(err?.response?.data?.message || err.message || 'Ошибка');
+      }
+
       throw error;
     }
   }
