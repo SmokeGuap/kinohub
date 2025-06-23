@@ -1,15 +1,16 @@
 'use client';
 import { Movie as MovieType } from '@/entities/Movie/model/movie';
-import { Movie } from '@/entities/Movie/ui/Movie';
+import { Movie } from '@/entities/Movie';
 import useWidth from '@/shared/hooks/useWidth';
 import { CarouselWrapper } from '@/shared/ui/carousel';
 
 type Props = {
   isFirst?: boolean;
+  genre: string;
   movies: MovieType[];
 };
 
-export const MovieCategorySection = ({ movies, isFirst }: Props) => {
+export const MovieCategorySection = ({ movies, isFirst, genre }: Props) => {
   const width = useWidth();
   return (
     <section
@@ -17,7 +18,7 @@ export const MovieCategorySection = ({ movies, isFirst }: Props) => {
         isFirst ? 'mt-[550px]' : 'mt-12'
       } border-t pt-4 border-color2`}
     >
-      <h2 className='text-2xl font-medium mb-2'>Комедии</h2>
+      <h2 className='text-2xl font-medium mb-2'>{genre}</h2>
       <CarouselWrapper
         itemClass='pr-4'
         partialVisible={width > 1100 ? true : false}

@@ -1,6 +1,6 @@
 'use client';
+import { Movie } from '@/entities/Movie';
 import { Movie as MovieType } from '@/entities/Movie/model/movie';
-import { Movie } from '@/entities/Movie/ui/Movie';
 import { CarouselWrapper } from '@/shared/ui/carousel';
 
 type Props = {
