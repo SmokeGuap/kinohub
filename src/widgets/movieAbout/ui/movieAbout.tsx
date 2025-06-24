@@ -1,72 +1,47 @@
-'use client';
 import Image from 'next/image';
 
 import { Button } from '@/shared/ui/button';
-import { useState } from 'react';
 import { MovieOverview } from './movieOverview';
+import { MovieDescription } from './movieDescription';
+import { Movie } from '@/entities/Movie/model/movie';
 
 type Props = {
-  name: string;
-  description: string;
-  shortDescription: string;
-  poster: string;
-  genres: string;
-  year: number;
-  rating: number;
-  country: string;
-  director: string;
-  actors: string;
-  movieLength: number;
+  movie: Movie;
 };
 
-export const MovieAbout = ({
-  name,
-  description,
-  shortDescription,
-  poster,
-  genres,
-  country,
-  year,
-  director,
-  actors,
-  rating,
-  movieLength,
-}: Props) => {
-  const [isFullDesc, setIsFullDescription] = useState(false);
-
+export const MovieAbout = ({ movie }: Props) => {
   return (
     <div className='flex flex-col md:flex-row gap-6'>
       <Image
         width={300}
         height={400}
-        src={poster}
+        src={movie.poster.url}
         alt='Movie Poster'
-        className='w-full md:w-64 rounded-lg'
+        className='w-full h-1/2 md:w-64 rounded-lg'
       />
       <div className='md:col-span-2 space-y-4'>
         <MovieOverview
-          name={name}
-          rating={rating}
-          genres={genres}
-          country={country}
-          year={year}
-          director={director}
-          actors={actors}
-          movieLength={movieLength}
+          name={movie.name}
+          rating={movie.rating.kp}
+          genres={movie.genres.map((g) => g.name).join(', ')}
+          country={movie.countries.map((g) => g.name).join(', ')}
+          year={movie.year}
+          director={movie.persons
+            .filter((person) => person.profession === 'режиссеры')
+            .map((person) => person.name)
+            .join(', ')}
+          actors={movie.persons
+            .filter((person) => person.profession === 'актеры')
+            .slice(0, 5)
+            .map((person) => person.name)
+            .join(', ')}
+          movieLength={movie.movieLength}
         />
-        <div>
-          <h2 className='text-xl font-semibold mb-2'>Описание</h2>
-          {!isFullDesc && <p className='leading-relaxed'>{shortDescription}</p>}
-          {isFullDesc && <p className='leading-relaxed'>{description}</p>}
-        </div>
+        <MovieDescription
+          shortDescription={movie.shortDescription}
+          description={movie.description}
+        />
         <div className='flex flex-col lg:flex-row gap-6'>
-          <Button
-            type='submit'
-            className='bg-color1'
-            onClick={() => setIsFullDescription(!isFullDesc)}
-          >
-            {isFullDesc ? 'Показать меньше' : 'Показать больше'}
-          </Button>
           <Button>Добавить в избранное</Button>
         </div>
       </div>

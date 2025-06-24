@@ -69,7 +69,7 @@ export const Carousel = async ({ movies }: Props) => {
           name={movie.name}
           year={movie.year}
           rating={movie.rating.kp}
-          movieLength={movie.movieLength}
+          movieLength={movie.isSeries ? movie.seriesLength : movie.movieLength}
         />
       ))}
     </CarouselWrapper>
