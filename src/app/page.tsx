@@ -1,3 +1,11 @@
+import { BestNewMovies } from '@/widgets/bestNewMovies';
+import { MovieCategoriesSection } from '@/widgets/movieCategoriesSection';
+
 export default function Home() {
-  return <div>Test</div>;
+  return (
+    <article>
+      <BestNewMovies />
+      <MovieCategoriesSection />
+    </article>
+  );
 }

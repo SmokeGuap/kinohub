@@ -2,11 +2,15 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [new URL('https://avatars.mds.yandex.net/**')],
+    remotePatterns: [
+      new URL('https://image.openmoviedb.com/**'),
+      new URL('https://kinopoisk-ru.clstorage.net/**'),
+    ],
   },
   webpack(config) {
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg')
+    const fileLoaderRule = config.module.rules.find(
+      (rule: { test: { test: (arg0: string) => any } }) =>
+        rule.test?.test?.('.svg')
     );
 
     config.module.rules.push(
@@ -27,6 +31,9 @@ const nextConfig: NextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
+  },
+  env: {
+    NEXT_KINOPOISK_KEY: process.env.NEXT_KINOPOISK_KEY,
   },
 };
 

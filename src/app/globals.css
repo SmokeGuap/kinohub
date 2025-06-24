@@ -1,11 +1,12 @@
+@import 'react-multi-carousel/lib/styles.css';
 @import 'tailwindcss';
 
 :root {
-  --color1: #606c38;
-  --color2: #dda15e;
-  --color3: #bc6c25;
-  --background: #283618;
-  --foreground: #fefae0;
+  --color1: #f5c518;
+  --color2: #d81f26;
+  --color3: #b71c1c;
+  --background: #0d0d0d;
+  --foreground: #e0e0e0;
 }
 
 @theme inline {
@@ -19,11 +20,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color1: #606c38;
-    --color2: #dda15e;
-    --color3: #bc6c25;
-    --background: #283618;
-    --foreground: #fefae0;
+    --color1: #f5c518;
+    --color2: #d81f26;
+    --color3: #b71c1c;
+    --background: #0d0d0d;
+    --foreground: #e0e0e0;
   }
 }
 
@@ -32,8 +33,4 @@ body {
   color: var(--foreground);
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   font-size: 16px;
-}
-
-button {
-  cursor: pointer;
 }
