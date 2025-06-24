@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default async function Films({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   const data = await getMovie(id);
   //   const data = {
@@ -754,9 +754,9 @@ export default async function Films({ params }: Props) {
       <div className='p-4'>
         <MovieAbout movie={data} />
         <div className='mt-6'>
-          <div className='aspect-video bg-foreground rounded-lg overflow-hidden'>
+          {/* <div className='aspect-video bg-foreground rounded-lg overflow-hidden'>
             <Player id={id} />
-          </div>
+          </div> */}
         </div>
       </div>
     </article>

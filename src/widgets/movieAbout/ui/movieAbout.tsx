@@ -17,7 +17,7 @@ export const MovieAbout = ({ movie }: Props) => {
         height={400}
         src={movie.poster.url}
         alt='Movie Poster'
-        className='w-full h-1/2 md:w-64 rounded-lg'
+        className='w-full h-full md:w-64 rounded-lg'
       />
       <div className='md:col-span-2 space-y-4'>
         <MovieOverview
@@ -35,7 +35,7 @@ export const MovieAbout = ({ movie }: Props) => {
             .slice(0, 5)
             .map((person) => person.name)
             .join(', ')}
-          movieLength={movie.movieLength}
+          movieLength={movie.isSeries ? movie.seriesLength : movie.movieLength}
         />
         <MovieDescription
           shortDescription={movie.shortDescription}
