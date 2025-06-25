@@ -2,17 +2,10 @@ import qs from 'qs';
 
 import { apiInstance } from '@/shared/api/base';
 import { Movie } from '../model/movie';
+import { GetMovies } from '../model/getMovies';
 
 type GetMoviesParams = {
   [key: string]: string | number | string[];
-};
-
-type GetMovies<T> = {
-  docs: T[];
-  total: number;
-  limit: number;
-  page: number;
-  pages: number;
 };
 
 export const getMovies = (params: GetMoviesParams) => {
