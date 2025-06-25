@@ -5,7 +5,7 @@ import axios, {
   AxiosResponse,
 } from 'axios';
 
-import { API_URL } from '@/shared/config';
+import { API_URL } from '@/shared/config/apiUrl';
 import { toast } from 'react-toastify';
 
 class ApiInstance {

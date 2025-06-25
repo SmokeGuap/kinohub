@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Logo from '@/assets/icons/logo.svg';
 
 import { NavBar } from '@/widgets/header/ui/navBar';
-import { Search } from '@/widgets/header/ui/search';
 import { Menu } from '@/widgets/header/ui/menu';
+import { Search } from '@/features/search';
 
 export const Header = () => {
   return (

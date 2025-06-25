@@ -20,7 +20,7 @@ export const Movie = ({
   rating,
 }: Props) => {
   return (
-    <Link className='relative group' href={`/films/${id}`}>
+    <Link className='relative group' href={`/movie/${id}`}>
       <Image
         className='rounded-lg w-full h-full object-cover'
         src={poster}

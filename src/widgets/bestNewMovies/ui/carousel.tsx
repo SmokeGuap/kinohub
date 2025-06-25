@@ -7,7 +7,7 @@ type Props = {
   movies: MovieType[];
 };
 
-export const Carousel = async ({ movies }: Props) => {
+export const Carousel = ({ movies }: Props) => {
   return (
     <CarouselWrapper
       itemClass='px-4 h-[500px]'

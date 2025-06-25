@@ -7,6 +7,7 @@ import { Movie } from '@/entities/Movie/model/movie';
 import Image from 'next/image';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import Link from 'next/link';
+import { Input } from '@/shared/ui/input';
 
 type Props = {
   isMobile?: boolean;
@@ -39,10 +40,10 @@ export const Search = ({ isMobile }: Props) => {
           <div className='absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none'>
             <SearchIcon />
           </div>
-          <input
+          <Input
             type='search'
             id='search'
-            className='block p-2 ps-10 w-full border rounded-lg bg-background border-color2 placeholder-foreground'
+            className='p-2 ps-10'
             placeholder='Поиск...'
             value={query}
             onFocus={() => setIsFocused(true)}
@@ -55,7 +56,7 @@ export const Search = ({ isMobile }: Props) => {
         <ul className='absolute right-0 z-10 mt-1 w-full md:w-2/1 bg-background border border-color2 rounded-lg shadow-lg'>
           {movies.map((movie) => (
             <Link
-              href={`/films/${movie.id}`}
+              href={`/movie/${movie.id}`}
               key={movie.id}
               className='flex items-center gap-3 p-2 hover:bg-color2 rounded cursor-pointer'
             >

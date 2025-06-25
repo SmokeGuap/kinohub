@@ -1,21 +1,15 @@
 'use client';
 import Link from 'next/link';
+import { navLinks } from '@/shared/config/navLinks';
 import { usePathname } from 'next/navigation';
 
 export const NavBar = () => {
   const pathname = usePathname();
 
-  const navItems = [
-    { href: '/', label: 'Главная' },
-    { href: '/films', label: 'Фильмы' },
-    { href: '/series', label: 'Сериалы' },
-    { href: '/cartoons', label: 'Мультфильмы' },
-  ];
-
   return (
     <nav className='hidden lg:block'>
       <ul className='flex items-center gap-6'>
-        {navItems.map(({ href, label }) => {
+        {navLinks.map(({ href, label }) => {
           const isActive = pathname === href;
 
           return (
