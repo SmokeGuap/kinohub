@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
 
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
@@ -31,15 +30,6 @@ export default function RootLayout({
           <Header />
           <div className='flex-1 my-4'>{children}</div>
           <Footer />
-          <ToastContainer
-            position='top-right'
-            autoClose={5000}
-            hideProgressBar={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
         </Providers>
       </body>
     </html>
