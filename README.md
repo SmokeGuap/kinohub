@@ -63,7 +63,7 @@ Create a .env file in the root directory and add your KinoPoisk token:
 NEXT_KINOPOISK_KEY=your_token_here
 ```
 
-> You can generate your API token by registering on KinoPoisk API. **(Free tier allows up to 200 requests per day)**
+> You can generate your API token by registering on [@kinopoiskdev_bot](https://t.me/kinopoiskdev_bot). **(Free tier allows up to 200 requests per day)**
 
 #### 4. Run the development server
 
