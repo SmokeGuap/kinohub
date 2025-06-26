@@ -14,7 +14,8 @@ export const getMoviesByGenre = (genre: string) => {
       'year',
       'movieLength',
       'rating',
-      'genres',
+      'seriesLength',
+      'isSeries',
     ],
     notNullFields: ['poster.url', 'name'],
   });

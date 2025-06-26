@@ -1,9 +1,10 @@
-import Link from "next/link";
+import { MovieList } from '@/widgets/movieList';
+import { Suspense } from 'react';
 
 export default function Films() {
   return (
-    <article>
-      <Link href={'/series'}>to series</Link>
-    </article>
+    <Suspense>
+      <MovieList type={'movie'} />
+    </Suspense>
   );
 }
