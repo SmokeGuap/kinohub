@@ -36,11 +36,12 @@ export const Menu = () => {
           <div className='fixed inset-y-0 right-0 w-full sm:max-w-sm overflow-y-auto bg-color2 p-6 px-4 z-50'>
             <Search isMobile />
             <nav>
-              <ul className='mt-6 sm:mt-12 flex flex-col space-y-4'>
+              <ul className='mt-6 sm:mt-12 flex flex-col space-y-4 text-xl'>
                 {navLinks.map(({ href, label }) => {
                   return (
                     <li key={href}>
                       <Link
+                        onClick={() => setIsOpen(false)}
                         href={href}
                         className='relative px-3 py-2 transition-colors duration-200'
                       >

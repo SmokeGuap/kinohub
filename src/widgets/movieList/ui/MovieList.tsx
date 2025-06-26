@@ -3,6 +3,8 @@ import { Movie } from '@/entities/Movie';
 import { Movie as MovieType } from '@/entities/Movie/model/movie';
 import { Pagination } from '@/features/pagination';
 import { SortingPanel } from '@/features/sortingPanel';
+import { genres, ratings, years } from '@/shared/config/filtersData';
+import { typeLabels } from '@/shared/config/typeLabels ';
 import { useMoviesQuery } from '@/shared/hooks/useMoviesQuery';
 import { getPageNumbers } from '@/shared/lib/getPageNumbers';
 import { Loader } from '@/shared/ui/loader';
@@ -37,6 +39,11 @@ export const MovieList = ({ type }: Props) => {
   const currentPage = Number(page);
   const pages = getPageNumbers(currentPage, totalPages);
 
+  const typeLabel = typeLabels[type];
+  const genreLabel = genres.find((item) => item.value === genre)?.label;
+  const ratingLabel = ratings.find((item) => item.value === rating)?.label;
+  const yearLabel = years.find((item) => item.value === year)?.label;
+
   const setPage = (newPage: number) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', newPage.toString());
@@ -45,6 +52,9 @@ export const MovieList = ({ type }: Props) => {
 
   return (
     <article className='min-h-screen'>
+      <h1 className='text-xl md:text-3xl font-bold mb-4'>
+        {`${typeLabel}: ${genreLabel}, ${ratingLabel}, ${yearLabel}`}
+      </h1>
       <SortingPanel />
 
       {isLoading ? (

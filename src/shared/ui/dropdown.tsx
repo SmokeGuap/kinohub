@@ -18,6 +18,7 @@ export const Dropdown = ({
   const [activeItem, setActiveItem] = useState(data[0]);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen((prev) => !prev);
+  const x = dropdownRef.current?.getBoundingClientRect().x;
 
   const router = useRouter();
   const pathname = usePathname();
@@ -79,7 +80,11 @@ export const Dropdown = ({
         </svg>
       </Button>
       {isOpen && (
-        <div className='scrollbar absolute right-0 z-10 mt-2 w-56 max-h-56 overflow-y-scroll origin-top-right rounded-lg bg-foreground'>
+        <div
+          className={`scrollbar absolute ${
+            x && x < 150 ? 'left-0' : 'right-0'
+          } z-10 mt-2 w-56 max-h-56 overflow-y-scroll origin-top-right rounded-lg bg-foreground`}
+        >
           <ul>
             {data.map((item) => (
               <li key={item.value} className='block text-sm text-background'>
