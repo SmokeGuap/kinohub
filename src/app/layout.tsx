@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'KinoHub',
-  description: 'Watch everything from everywhere',
+  description: 'Смотри все отовсюду',
 };
 
 export default function RootLayout({

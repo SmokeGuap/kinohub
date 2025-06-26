@@ -1,5 +1,11 @@
 import { MovieList } from '@/widgets/movieList';
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
+
+export const metadata: Metadata = {
+  title: 'KinoHub — Фильмы',
+  description: 'Лучшие фильмы на каждый день',
+};
 
 export default function Films() {
   return (
