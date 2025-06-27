@@ -6,6 +6,7 @@ import { SortingPanel } from '@/features/sortingPanel';
 import { genres, ratings, years } from '@/shared/config/filtersData';
 import { typeLabels } from '@/shared/config/typeLabels ';
 import { useMoviesQuery } from '@/shared/hooks/useMoviesQuery';
+import useWidth from '@/shared/hooks/useWidth';
 import { getPageNumbers } from '@/shared/lib/getPageNumbers';
 import { Loader } from '@/shared/ui/loader';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -18,6 +19,7 @@ export const MovieList = ({ type }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const width = useWidth();
 
   const page = searchParams.get('page') || '';
   const genre = searchParams.get('genre') || '';
@@ -37,7 +39,7 @@ export const MovieList = ({ type }: Props) => {
 
   const totalPages = data?.pages || 1;
   const currentPage = Number(page);
-  const pages = getPageNumbers(currentPage, totalPages);
+  const pages = getPageNumbers(currentPage, totalPages, width > 380 ? 2 : 1);
 
   const typeLabel = typeLabels[type];
   const genreLabel = genres.find((item) => item.value === genre)?.label;
@@ -61,7 +63,7 @@ export const MovieList = ({ type }: Props) => {
         <Loader />
       ) : (
         <>
-          <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6'>
+          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6'>
             {data?.docs.map((movie: MovieType) => (
               <Movie
                 key={movie.id}
