@@ -54,20 +54,11 @@ export const MovieCategorySection = ({ movies, isFirst, genre }: Props) => {
           mobileXL: {
             breakpoint: {
               max: 800,
-              min: 600,
+              min: 0,
             },
             items: 2,
             partialVisibilityGutter: 30,
-            slidesToSlide: 1,
-          },
-          mobileL: {
-            breakpoint: {
-              max: 600,
-              min: 0,
-            },
-            items: 1,
-            partialVisibilityGutter: 30,
-            slidesToSlide: 1,
+            slidesToSlide: 2,
           },
         }}
       >
