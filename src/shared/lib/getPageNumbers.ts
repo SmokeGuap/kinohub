@@ -1,5 +1,4 @@
-export const getPageNumbers = (currentPage: number, totalPages: number) => {
-  const delta = 2;
+export const getPageNumbers = (currentPage: number, totalPages: number, delta: number) => {
   const pages = [];
 
   for (

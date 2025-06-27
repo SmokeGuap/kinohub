@@ -14,8 +14,9 @@ export const Pagination = ({
   setPage,
 }: Props) => {
   return (
-    <section className='mt-10 flex justify-center items-center gap-2'>
+    <section className='max-sm:text-xs mt-10 flex justify-center items-center gap-1 sm:gap-2'>
       <Button
+        className='!px-2 sm:!px-4'
         onClick={() => setPage(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
       >
@@ -25,7 +26,7 @@ export const Pagination = ({
       {currentPage > 3 && (
         <>
           <Button
-            className='bg-foreground text-background'
+            className='!px-2 sm:!px-4 bg-foreground text-background'
             onClick={() => setPage(1)}
           >
             1
@@ -38,7 +39,7 @@ export const Pagination = ({
         <Button
           key={pageNum}
           onClick={() => setPage(pageNum)}
-          className={`${
+          className={`!px-2 sm:!px-4 ${
             pageNum === currentPage
               ? '!bg-color1 text-background font-bold'
               : 'bg-foreground text-background'
@@ -52,7 +53,7 @@ export const Pagination = ({
         <>
           {currentPage < totalPages - 3 && <span className='px-2'>...</span>}
           <Button
-            className='bg-foreground text-background'
+            className='!px-2 sm:!px-4 bg-foreground text-background'
             onClick={() => setPage(totalPages)}
           >
             {totalPages}
@@ -61,6 +62,7 @@ export const Pagination = ({
       )}
 
       <Button
+        className='!px-2 sm:!px-4'
         onClick={() => setPage(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
       >

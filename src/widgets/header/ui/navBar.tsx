@@ -7,7 +7,7 @@ export const NavBar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className='hidden lg:block'>
+    <nav className='hidden xl:block'>
       <ul className='flex items-center gap-6'>
         {navLinks.map(({ href, label }) => {
           const isActive = pathname === href;

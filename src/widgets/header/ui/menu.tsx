@@ -12,7 +12,7 @@ export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='block lg:hidden'>
+    <div className='block xl:hidden'>
       <Button
         className={`relative z-2000 ${
           isOpen && '!bg-foreground text-color2'
@@ -24,7 +24,7 @@ export const Menu = () => {
 
       {isOpen && (
         <div
-          className='lg:hidden fixed inset-0 z-1001'
+          className='xl:hidden fixed inset-0 z-1001'
           role='dialog'
           aria-modal='true'
         >

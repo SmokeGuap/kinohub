@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import { Button } from '@/shared/ui/button';
 import { MovieOverview } from './movieOverview';
 import { MovieDescription } from './movieDescription';
 import { Movie } from '@/entities/Movie/model/movie';
+import FavoriteButton from '@/features/favoriteButton/ui/favoriteButton';
 
 type Props = {
   movie: Movie;
@@ -42,7 +42,7 @@ export const MovieAbout = ({ movie }: Props) => {
           description={movie.description}
         />
         <div className='flex flex-col lg:flex-row gap-6'>
-          <Button>Добавить в избранное</Button>
+          <FavoriteButton movie={movie} />
         </div>
       </div>
     </div>
