@@ -7,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function Favorites() {
-  return <FavoritesList />;
+  return (
+    <article>
+      <h1 className='text-xl md:text-3xl font-bold mb-4'>Избранные</h1>
+      <FavoritesList />
+    </article>
+  );
 }
