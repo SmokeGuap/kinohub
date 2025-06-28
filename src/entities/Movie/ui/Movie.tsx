@@ -1,7 +1,6 @@
 import { formatFilmLength } from '@/shared/lib/formatFilmLength';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
 
 type Props = {
   poster: string;
@@ -20,37 +19,8 @@ export const Movie = ({
   movieLength,
   rating,
 }: Props) => {
-  const isDragging = useRef(false);
-  const startPos = useRef<{ x: number; y: number }>(null);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    isDragging.current = false;
-    startPos.current = { x: e.clientX, y: e.clientY };
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!startPos.current) return;
-    const dx = Math.abs(e.clientX - startPos.current.x);
-    const dy = Math.abs(e.clientY - startPos.current.y);
-    if (dx > 5 || dy > 5) {
-      isDragging.current = true;
-    }
-  };
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (isDragging.current) {
-      e.preventDefault();
-    }
-  };
   return (
-    <Link
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onClick={handleClick}
-      draggable={false}
-      className='relative group'
-      href={`/movie/${id}`}
-    >
+    <Link className='relative group' href={`/movie/${id}`}>
       <Image
         className='rounded-lg w-full h-full object-cover'
         src={poster}

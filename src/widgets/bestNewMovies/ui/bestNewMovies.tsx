@@ -22,7 +22,7 @@ export const BestNewMovies = async () => {
   });
 
   return (
-    <section className='absolute top-25 left-0 right-0'>
+    <section className='absolute top-25 left-5 right-5'>
       <Carousel movies={data.docs} />
     </section>
   );

@@ -1,8 +1,8 @@
 'use client';
 import { Movie as MovieType } from '@/entities/Movie/model/movie';
 import { Movie } from '@/entities/Movie';
-import useWidth from '@/shared/hooks/useWidth';
 import { CarouselWrapper } from '@/shared/ui/carousel';
+import { Navigation } from 'swiper/modules';
 
 type Props = {
   isFirst?: boolean;
@@ -11,7 +11,6 @@ type Props = {
 };
 
 export const MovieCategorySection = ({ movies, isFirst, genre }: Props) => {
-  const width = useWidth();
   return (
     <section
       className={`${
@@ -20,45 +19,28 @@ export const MovieCategorySection = ({ movies, isFirst, genre }: Props) => {
     >
       <h2 className='text-2xl font-medium mb-2'>{genre}</h2>
       <CarouselWrapper
-        itemClass='pr-4'
-        partialVisible={width > 1100 ? true : false}
-        slidesToSlide={3}
-        arrows
-        responsive={{
-          desktopXL: {
-            breakpoint: {
-              max: 3000,
-              min: 1400,
-            },
-            items: 5,
-            partialVisibilityGutter: 40,
+        modules={[Navigation]}
+        spaceBetween={15}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 30,
           },
-          desktopL: {
-            breakpoint: {
-              max: 1400,
-              min: 1100,
-            },
-            items: 4,
-            partialVisibilityGutter: 40,
-            slidesToSlide: 2,
+          800: {
+            slidesPerView: 3,
+            slidesPerGroup: 2,
+            spaceBetween: 30,
           },
-          tablet: {
-            breakpoint: {
-              max: 1100,
-              min: 800,
-            },
-            items: 3,
-            partialVisibilityGutter: 30,
-            slidesToSlide: 2,
+          1100: {
+            slidesPerView: 4,
+            slidesPerGroup: 2,
+            spaceBetween: 40,
           },
-          mobileXL: {
-            breakpoint: {
-              max: 800,
-              min: 0,
-            },
-            items: 2,
-            partialVisibilityGutter: 30,
-            slidesToSlide: 2,
+          1400: {
+            slidesPerView: 5,
+            slidesPerGroup: 3,
+            spaceBetween: 40,
           },
         }}
       >

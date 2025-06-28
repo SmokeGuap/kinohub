@@ -1,4 +1,5 @@
 'use client';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Movie } from '@/entities/Movie';
 import { Movie as MovieType } from '@/entities/Movie/model/movie';
 import { CarouselWrapper } from '@/shared/ui/carousel';
@@ -10,56 +11,38 @@ type Props = {
 export const Carousel = ({ movies }: Props) => {
   return (
     <CarouselWrapper
-      itemClass='px-4 h-[500px]'
-      autoPlay
-      autoPlaySpeed={2000}
-      infinite
-      pauseOnHover
-      slidesToSlide={1}
-      arrows
-      responsive={{
-        desktopXL: {
-          breakpoint: {
-            max: 3000,
-            min: 1400,
-          },
-          items: 4,
-          partialVisibilityGutter: 40,
+      className='h-[500px]'
+      modules={[Autoplay, Navigation]}
+      spaceBetween={30}
+      slidesPerView={4}
+      loop={true}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }}
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 30,
         },
-        desktopL: {
-          breakpoint: {
-            max: 1400,
-            min: 1100,
-          },
-          items: 3,
-          partialVisibilityGutter: 40,
+        600: {
+          slidesPerView: 1,
+          spaceBetween: 30,
         },
-        tablet: {
-          breakpoint: {
-            max: 1100,
-            min: 800,
-          },
-          items: 2,
-          partialVisibilityGutter: 30,
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 30,
         },
-        mobileXL: {
-          breakpoint: {
-            max: 800,
-            min: 600,
-          },
-          items: 1,
-          partialVisibilityGutter: 30,
+        1100: {
+          slidesPerView: 3,
+          spaceBetween: 40,
         },
-        mobileL: {
-          breakpoint: {
-            max: 600,
-            min: 0,
-          },
-          items: 1,
-          partialVisibilityGutter: 30,
+        1400: {
+          slidesPerView: 4,
+          spaceBetween: 40,
         },
       }}
-      draggable
     >
       {movies.map((movie: MovieType) => (
         <Movie

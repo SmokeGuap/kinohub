@@ -1,9 +1,15 @@
-import Carousel, { CarouselProps } from 'react-multi-carousel';
-import { PropsWithChildren } from 'react';
+import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
+import { Children, PropsWithChildren } from 'react';
 
 export const CarouselWrapper = ({
   children,
   ...props
-}: PropsWithChildren<CarouselProps>) => {
-  return <Carousel {...props}>{children}</Carousel>;
+}: PropsWithChildren<SwiperProps>) => {
+  return (
+    <Swiper navigation={true} draggable={true} {...props}>
+      {Children.map(children, (child) => (
+        <SwiperSlide>{child}</SwiperSlide>
+      ))}
+    </Swiper>
+  );
 };
