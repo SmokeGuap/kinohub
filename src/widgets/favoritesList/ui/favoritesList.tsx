@@ -20,7 +20,7 @@ export const FavoritesList = () => {
           poster={movie.poster?.url}
           name={movie.name}
           year={movie.year}
-          movieLength={movie.movieLength}
+          movieLength={movie.isSeries ? movie.seriesLength : movie.movieLength}
           rating={movie.rating.kp}
         />
       ))}
