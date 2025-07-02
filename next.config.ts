@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['swiper'],
   images: {
     remotePatterns: [
       new URL('https://image.openmoviedb.com/**'),
