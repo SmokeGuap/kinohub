@@ -23,10 +23,9 @@ A modern web application to discover and watch movies using the KinoPoisk API. B
 - **UI Library**: React 19
 - **State/Data Fetching**: @tanstack/react-query
 - **HTTP Client**: Axios
-- **Carousel**: react-multi-carousel
+- **Carousel**: swiper
 - **Notifications**: react-toastify
 - **Progress Bar**: @bprogress/next
-- **Query String Parser**: qs
 
 ---
 
