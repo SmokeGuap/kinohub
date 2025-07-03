@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Carousel } from '../ui/carousel';
-import { movies } from '@/shared/mocks';
+import { mockMovies } from '@/shared/mocks';
 
 jest.mock('@/shared/ui/carousel', () => ({
   CarouselWrapper: ({ children }: { children: React.ReactNode }) => (
@@ -16,17 +16,17 @@ jest.mock('@/entities/Movie', () => ({
   ),
 }));
 
-describe('Карусель', () => {
-  it('Рендер всех movie в карусели', () => {
-    render(<Carousel movies={movies} />);
+describe('Carousel', () => {
+  it('renders all movies in carousel', () => {
+    render(<Carousel movies={mockMovies} />);
     const items = screen.getAllByTestId('movie');
     expect(items).toHaveLength(2);
     expect(screen.getByText('Movie One')).toBeInTheDocument();
     expect(screen.getByText('Movie Two')).toBeInTheDocument();
   });
 
-  it('Рендер карусели', () => {
-    render(<Carousel movies={movies} />);
+  it('renders carousel', () => {
+    render(<Carousel movies={mockMovies} />);
     expect(screen.getByTestId('carousel-wrapper')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,6 @@
-export const movies = [
+import { Movie } from '@/entities/Movie/model/movie';
+
+export const mockMovies: Partial<Movie>[] = [
   {
     id: 1,
     name: 'Movie One',
@@ -6,7 +8,7 @@ export const movies = [
     year: 2021,
     rating: { kp: 8.2 },
     isSeries: false,
-    movieLength: 120,
+    movieLength: 148,
   },
   {
     id: 2,

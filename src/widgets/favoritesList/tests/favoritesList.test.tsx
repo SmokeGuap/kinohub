@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { FavoritesList } from '../ui/favoritesList';
-import { movies } from '@/shared/mocks';
+import { mockMovies } from '@/shared/mocks';
 
-// Мокаем компонент Movie, чтобы не влезать в детали рендера
 jest.mock('@/entities/Movie', () => ({
   Movie: ({ id, name }: { id: number; name: string }) => (
     <div data-testid='movie' data-id={id}>
@@ -13,12 +12,11 @@ jest.mock('@/entities/Movie', () => ({
 
 describe('FavoritesList', () => {
   beforeEach(() => {
-    // Чистим localStorage перед каждым тестом
     localStorage.clear();
   });
 
-  it('Рендер фильмов из localStorage', () => {
-    localStorage.setItem('kinohub-favorites', JSON.stringify(movies));
+  it('renders movies from localStorage', () => {
+    localStorage.setItem('kinohub-favorites', JSON.stringify(mockMovies));
 
     render(<FavoritesList />);
 
@@ -28,7 +26,7 @@ describe('FavoritesList', () => {
     expect(screen.getByText('Movie Two')).toBeInTheDocument();
   });
 
-  it('Не отображает фильмы, если localStorage пуст', () => {
+  it('renders empty list if no favorites in localStorage', () => {
     render(<FavoritesList />);
     expect(screen.queryByTestId('movie')).not.toBeInTheDocument();
   });
