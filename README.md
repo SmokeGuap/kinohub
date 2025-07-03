@@ -26,6 +26,7 @@ A modern web application to discover and watch movies using the KinoPoisk API. B
 - **Carousel**: swiper
 - **Notifications**: react-toastify
 - **Progress Bar**: @bprogress/next
+- **Testing**: jest, testing-library
 
 ---
 
