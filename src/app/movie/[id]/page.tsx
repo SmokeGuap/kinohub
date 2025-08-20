@@ -35,13 +35,11 @@ export default async function Films({ params }: Props) {
   const data = await getMovie(id);
 
   return (
-    <article className='rounded-lg border border-color2'>
-      <div className='p-4'>
-        <MovieAbout movie={data} />
-        <div className='mt-6'>
-          <div className='aspect-video bg-foreground rounded-lg overflow-hidden'>
-            <Player id={id} />
-          </div>
+    <article>
+      <MovieAbout movie={data} />
+      <div className='mt-6'>
+        <div className='aspect-video bg-foreground rounded-lg overflow-hidden'>
+          <Player id={id} />
         </div>
       </div>
     </article>
