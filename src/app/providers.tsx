@@ -19,6 +19,9 @@ export default function Providers({ children }: { children: ReactNode }) {
         {children}
       </ProgressProvider>
       <ToastContainer
+        closeOnClick
+        closeButton={false}
+        theme='dark'
         position='top-right'
         autoClose={5000}
         hideProgressBar={false}

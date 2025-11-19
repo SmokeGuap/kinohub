@@ -10,6 +10,7 @@
   --color3: #b71c1c;
   --background: #0d0d0d;
   --foreground: #e0e0e0;
+  --toastify-color-progress-dark: #b71c1c;
 }
 
 @theme inline {
