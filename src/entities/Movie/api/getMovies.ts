@@ -10,7 +10,6 @@ type GetMoviesParams = {
 
 export const getMovies = (params: GetMoviesParams) => {
   const queryString = qs.stringify(params, { arrayFormat: 'repeat' });
-  console.log(queryString);
 
   return apiInstance.get<GetMovies<Movie>>(`/movie?${queryString}`);
 };
