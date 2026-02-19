@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL('https://image.openmoviedb.com/**'),
       new URL('https://kinopoisk-ru.clstorage.net/**'),
+      new URL('https://avatars.mds.yandex.net/**'),
     ],
   },
   webpack(config) {

@@ -44,7 +44,7 @@ export const ratings = [
 ];
 
 export const sorting = [
-  { label: 'Рекомендуемые', value: '' },
+  { label: 'Рекомендуемые', value: 'votes.filmCritics' },
   { label: 'По рейтингу', value: 'rating.kp' },
   { label: 'По дате выхода', value: 'releaseYears.start' },
 ];

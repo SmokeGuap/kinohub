@@ -25,7 +25,7 @@ export const MovieList = ({ type }: Props) => {
   const genre = searchParams.get('genre') || '';
   const rating = searchParams.get('rating') || '';
   const year = searchParams.get('year') || '';
-  const sort = searchParams.get('sort') || '';
+  const sort = searchParams.get('sort') || 'votes.filmCritics';
 
   const { data, isLoading } = useMoviesQuery({
     queryKey: [page, genre, rating, year, sort, type],
